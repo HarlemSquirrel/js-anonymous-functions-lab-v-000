@@ -18,37 +18,49 @@ $(document).ready(function(){
   }
 
   function menu(){
-    $('#menu').on('click', menuOptions);
+    $('#menu').on('click', function() {
+      $('#menuOptions').html("You can play a song, pause a song, or view all the songs");
+    });
   }
 
-   function menuOptions() {
-    $('#menuOptions').html("You can play a song, pause a song, or view all the songs");
-  }
+  // function menuOptions() {
+  //  $('#menuOptions').html("You can play a song, pause a song, or view all the songs");
+  //}
 
-  function nowPlaying(){
-    $('#songPlaying').html("now playing " + songToPlay + " by " + theArtist);
-    return "now playing " + songToPlay + " by " + theArtist;
-  }
+  //function nowPlaying(){
+  //  $('#songPlaying').html("now playing " + songToPlay + " by " + theArtist);
+  //  return "now playing " + songToPlay + " by " + theArtist;
+  //}
 
   function play(){
-    $('#play').on('click', nowPlaying)
+    $('#play').on('click', function(){
+      $('#songPlaying').html("now playing " + songToPlay + " by " + theArtist);
+      return "now playing " + songToPlay + " by " + theArtist;
+    })
   }
 
-  function nowPausing(){
-    $('#songPaused').html(songToPlay + " is paused");
-  }
+  //function nowPausing(){
+  //  $('#songPaused').html(songToPlay + " is paused");
+  //}
 
   function pause(){
-    $('#pause').on('click', nowPausing);
+    $('#pause').on('click', function nowPausing(){
+      $('#songPaused').html(songToPlay + " is paused");
+    });
   }
-   function showSongs(){
-    var songs = "";
-    for (var key in jukeboxSongs) {
-    songs += jukeboxSongs[key] + " by " + key +  " is available to play. "
-  }
-    $('#showSongs').html(songs);
-  }
+  // function showSongs(){
+  //  var songs = "";
+  //  for (var key in jukeboxSongs) {
+  //  songs += jukeboxSongs[key] + " by " + key +  " is available to play. "
+  //}
+  //  $('#showSongs').html(songs);
+  //}
   function show(){
-    $('#show').on('click', showSongs);
+    $('#show').on('click', function(){
+     var songs = "";
+     for (var key in jukeboxSongs) {
+     songs += jukeboxSongs[key] + " by " + key +  " is available to play. "
+   }
+     $('#showSongs').html(songs);
+   });
   }
-
